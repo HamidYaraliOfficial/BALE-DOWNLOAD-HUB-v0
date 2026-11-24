@@ -1,0 +1,146 @@
+{
+ "articles": [
+  {
+   "id": "intro",
+   "title": "Getting to know the app",
+   "body": "<p><b>BALE DOWNLOAD HUB</b> downloads files from allowed public links, checks them, publishes them to your Bale channel and then <b>deletes every temporary file</b>.</p><ol><li>Create a Bale bot and copy its token.</li><li>Create a channel and make the bot an admin.</li><li>Paste the token and channel in the Setup Wizard.</li><li>Add links (in the app or by messaging the bot).</li></ol><p>Only administrators you define can use the bot.</p>"
+  },
+  {
+   "id": "create_bot",
+   "title": "Creating a Bale bot",
+   "body": "<p>Bots are created with Bale's official bot-management bot (<b>@botfather</b> inside Bale). Follow the steps in the official documentation: <a href='https://docs.bale.ai/'>docs.bale.ai</a>.</p><p>You choose a name and a username; BotFather then replies with the bot <b>token</b>.</p>"
+  },
+  {
+   "id": "token",
+   "title": "Getting and protecting the token",
+   "body": "<p>The token looks like <code>123456789:ABC-DEF...</code>. Anyone who has it controls your bot.</p><ul><li>Paste it only into the app's token field (it is kept in the Windows Credential Manager, not in the database or in settings files).</li><li>Never post it in chats or screenshots.</li><li>If it leaks, ask BotFather to revoke/regenerate it and enter the new one here.</li></ul><p>The app masks tokens in logs, error messages, reports and exports.</p>"
+  },
+  {
+   "id": "create_channel",
+   "title": "Creating a channel",
+   "body": "<p>In Bale: New → Channel. A <b>public</b> channel has a username (e.g. <code>@my_files</code>) which is the easiest ID to use.</p>"
+  },
+  {
+   "id": "add_bot_admin",
+   "title": "Making the bot a channel admin",
+   "body": "<p>Open the channel → Administrators → Add admin → choose your bot and allow <b>posting messages</b>. Without this the bot cannot publish and the channel test will fail.</p>"
+  },
+  {
+   "id": "channel_id",
+   "title": "Finding the channel ID",
+   "body": "<p>Use <code>@username</code> for public channels. The Bale Bot API also accepts the numeric chat id; after a successful test the app shows the numeric ID it received from Bale.</p><p><i>Limit:</i> the documented API has no call to list a bot's channels, so a private channel without a username needs its numeric ID from another source.</p>"
+  },
+  {
+   "id": "admin_id",
+   "title": "Finding a user's numeric ID",
+   "body": "<p>Ask the person to send any message to your bot. If they are not authorised yet, the bot answers with their numeric ID – paste it into <b>Users</b> or into the wizard's admin step.</p>"
+  },
+  {
+   "id": "connection",
+   "title": "Connection settings",
+   "body": "<p>Defaults work for most networks. Increase the timeouts on slow connections; set a proxy (<code>http://…</code> or <code>socks5://…</code>) only if Bale is not reachable directly.</p>"
+  },
+  {
+   "id": "test_connection",
+   "title": "Testing the connection",
+   "body": "<p>Use <b>Test</b> next to the token (calls <code>getMe</code>) and next to the channel. The channel test sends a short message and deletes it again – this is the only reliable way to verify posting rights because the Bale API has no 'my permissions' call.</p>"
+  },
+  {
+   "id": "bot_start_stop",
+   "title": "Starting and stopping the bot",
+   "body": "<p>The bot starts automatically when a token is saved and <b>Bot enabled</b> is on (Settings → Bot). Turn it off to stop receiving messages; downloads started from the desktop keep working.</p>"
+  },
+  {
+   "id": "download",
+   "title": "Downloading from a link",
+   "body": "<p>Add links in <b>Downloads → Add links</b>, paste several, or import TXT/CSV. The app analyses each link first (name, size, type) and you confirm. Supported: direct files and pages supported by yt-dlp. <b>Not</b> supported: DRM content, content behind logins/paywalls, private network addresses.</p>"
+  },
+  {
+   "id": "publish",
+   "title": "Publishing to the channel",
+   "body": "<p>Images (≤10 MB JPG/PNG) go as photos, MP4 as video, MP3/M4A as audio, everything else as documents. Bale bots can upload at most <b>50 MB</b> per file. Optionally enable <i>split large files</i> to send 49 MB parts. Scheduling is done by the app (the Bale API has no scheduled posts).</p>"
+  },
+  {
+   "id": "local_api",
+   "title": "Local link API (optional)",
+   "body": "<p>Settings → Bot → <b>Enable local link API</b>. Other programs on this computer can then POST links:</p><pre>curl -X POST http://127.0.0.1:8765/api/v1/links -H \"Authorization: Bearer YOUR_KEY\" -H \"Content-Type: application/json\" -d \"{\\\"urls\\\":[\\\"https://example.com/a.pdf\\\"]}\"</pre><p>It listens on 127.0.0.1 only, needs the key shown in settings, accepts at most 20 links per request, and is off by default.</p>"
+  },
+  {
+   "id": "queue",
+   "title": "Managing the queue",
+   "body": "<p>Pause, resume, cancel, retry, change priority, and set concurrent downloads. The queue is saved and restored after a restart or crash; partial downloads resume when the server supports Range requests.</p>"
+  },
+  {
+   "id": "errors",
+   "title": "Common errors",
+   "body": "<ul><li><b>Unauthorized / token rejected</b> – wrong or revoked token.</li><li><b>Forbidden / not a member</b> – bot is not an admin of the channel.</li><li><b>File too large</b> – above your limit or Bale's 50 MB.</li><li><b>URL blocked</b> – private/internal address (SSRF protection).</li><li><b>Disk space low</b> – the queue pauses automatically.</li></ul>"
+  },
+  {
+   "id": "cleanup",
+   "title": "Automatic clean-up",
+   "body": "<p>After a successful publish every temporary file of that job (download, processed copy, thumbnail, side files) is deleted; failed or cancelled jobs are cleaned too. Orphans are swept at start-up and on a schedule. <b>Privacy mode</b> also removes the URL and file name from the history.</p><p><i>Honest note:</i> deleting a file is not secure erasure – the operating system may allow recovery with special tools.</p>"
+  },
+  {
+   "id": "database",
+   "title": "Managing the database",
+   "body": "<p>The SQLite database holds only job metadata – never file contents. Use Settings → Backup for integrity check, vacuum and retention.</p>"
+  },
+  {
+   "id": "backup",
+   "title": "Backups and restore",
+   "body": "<p>Backups can be password-encrypted. Settings export never contains the token. Restoring first saves a safety copy of the current database.</p>"
+  },
+  {
+   "id": "token_security",
+   "title": "Token security",
+   "body": "<p>The token is stored in the OS credential vault; if none exists an encrypted file protected by machine/user-derived key is used (stops casual reading, not malware running as you).</p>"
+  },
+  {
+   "id": "install",
+   "title": "Installing and updating",
+   "body": "<p>Run <code>run.bat</code> (creates a virtual environment and installs dependencies) or use the EXE built by <code>build.bat</code>. Updates are never installed automatically; the update check is off until you enable it and give a feed URL.</p>"
+  }
+ ],
+ "faq": [
+  {
+   "q": "Does the app keep my downloads?",
+   "a": "No. After publishing (or failing/cancelling) the job's temporary folder is deleted. The database stores metadata only."
+  },
+  {
+   "q": "Why is a file over 50 MB rejected?",
+   "a": "Bale bots can upload at most 50 MB per file through the Bot API. Enable 'split large files' for 49 MB parts."
+  },
+  {
+   "q": "Can I schedule posts?",
+   "a": "Yes, in the Add-links dialog. The app starts the job at the chosen time because the Bale API has no scheduling."
+  },
+  {
+   "q": "Is my token safe?",
+   "a": "It is stored in the Windows Credential Manager and masked everywhere. Never share it."
+  },
+  {
+   "q": "Who can use the bot?",
+   "a": "Only users in the Users list. Everyone else gets a short 'not authorised' reply with their numeric ID."
+  },
+  {
+   "q": "Why can't I download from a private IP?",
+   "a": "Blocking localhost/private addresses (SSRF) protects your network."
+  },
+  {
+   "q": "Why did the channel test post a message?",
+   "a": "It is the only way to verify posting rights; the message is deleted immediately."
+  },
+  {
+   "q": "Does it support YouTube etc.?",
+   "a": "Through yt-dlp for public content that is allowed. DRM, logins and paywalls are not supported."
+  },
+  {
+   "q": "What happens if the PC crashes?",
+   "a": "On restart unfinished jobs return to the queue and resume if possible; orphan files are cleaned."
+  },
+  {
+   "q": "Can I use another language?",
+   "a": "Settings → Appearance: Persian (RTL), English, Chinese – switch any time."
+  }
+ ]
+}
