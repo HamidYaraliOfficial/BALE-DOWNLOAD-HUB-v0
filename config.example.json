@@ -1,0 +1,114 @@
+{
+  "general": {
+    "language": "fa",
+    "theme": "dark",
+    "accent": "#3B82F6",
+    "first_run_done": false,
+    "check_updates": false,
+    "update_feed_url": "",
+    "show_tooltips": true
+  },
+  "bale": {
+    "api_base": "https://tapi.bale.ai",
+    "bot_username": "",
+    "bot_enabled": true,
+    "polling_interval_s": 2.0,
+    "connect_timeout_s": 10.0,
+    "read_timeout_s": 30.0,
+    "upload_timeout_s": 900.0,
+    "retry_count": 3,
+    "retry_backoff_s": 2.0,
+    "proxy": "",
+    "require_confirmation": false
+  },
+  "download": {
+    "directory": "C:\\\\BaleTemp",
+    "max_file_size_mb": 50,
+    "concurrent_downloads": 2,
+    "allowed_types": [
+      "image",
+      "video",
+      "audio",
+      "document",
+      "archive",
+      "other"
+    ],
+    "bandwidth_limit_kbps": 0,
+    "chunk_size_kb": 256,
+    "segments": 4,
+    "segment_min_mb": 8,
+    "connect_timeout_s": 15.0,
+    "read_timeout_s": 30.0,
+    "retry_count": 3,
+    "retry_backoff_s": 2.0,
+    "auto_retry": true,
+    "auto_resume": true,
+    "min_free_disk_mb": 500,
+    "max_redirects": 5,
+    "verify_signature": true,
+    "block_executables": true,
+    "block_unsafe_archives": true,
+    "use_ytdlp": true,
+    "split_large_files": false,
+    "priority_small_first": false
+  },
+  "media": {
+    "rename_pattern": "",
+    "name_prefix": "",
+    "name_suffix": "",
+    "sanitize_names": true,
+    "categorize_folders": false,
+    "make_thumbnails": false,
+    "convert_images_to": "",
+    "keep_original_until_done": true,
+    "scan_with_defender": false
+  },
+  "publish": {
+    "default_caption": "{filename}\n{filesize}",
+    "auto_publish": true,
+    "delete_after_upload": true,
+    "duplicate_detection": true,
+    "send_photos_as_photo": true,
+    "send_videos_as_video": true
+  },
+  "cleanup": {
+    "interval_min": 30,
+    "orphan_max_age_hours": 6,
+    "privacy_mode": false,
+    "cleanup_on_startup": true
+  },
+  "logging": {
+    "level": "INFO",
+    "retention_days": 14,
+    "db_retention_days": 90,
+    "max_db_size_mb": 500,
+    "archive_before_purge": true
+  },
+  "security": {
+    "rate_limit_per_min": 10,
+    "user_daily_quota_mb": 2048,
+    "admin_only_default": true
+  },
+  "notifications": {
+    "in_app": {
+      "notify.download_started": true,
+      "notify.download_finished": true,
+      "notify.upload_started": true,
+      "notify.upload_finished": true,
+      "notify.connection_error": true,
+      "notify.download_error": true,
+      "notify.upload_error": true,
+      "notify.disk_low": true,
+      "notify.quota_near": true,
+      "notify.bot_disconnected": true,
+      "notify.cleanup_done": true
+    },
+    "notify_admins_on_bale": true,
+    "bale_events": [
+      "notify.download_error",
+      "notify.upload_error",
+      "notify.disk_low",
+      "notify.connection_error"
+    ]
+  }
+}
