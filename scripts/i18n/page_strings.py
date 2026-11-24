@@ -1,0 +1,222 @@
+from .ui_strings import A
+# ---------------- dashboard
+A("dash.title", "Dashboard", "داشبورد", "仪表盘")
+A("dash.sub", "Live status taken from the database and the running system – no sample data.", "وضعیت لحظه‌ای از دیتابیس و سیستم واقعی – بدون داده‌ی ساختگی.", "来自数据库和运行系统的实时状态——没有示例数据。")
+for k, en, fa, zh in [
+ ("bot", "Bot connection", "اتصال ربات", "机器人连接"), ("channels", "Channels", "کانال‌ها", "频道"), ("total", "Total downloads", "کل دانلودها", "下载总数"),
+ ("success", "Successful", "موفق", "成功"), ("errors", "Failed", "ناموفق", "失败"), ("published", "Files published", "فایل‌های منتشرشده", "已发布文件"),
+ ("queued", "In queue", "در صف", "队列中"), ("active", "Active now", "فعال", "进行中"), ("recv_today", "Received today", "دریافت امروز", "今日接收"),
+ ("sent_today", "Sent today", "ارسال امروز", "今日发送"), ("disk_used", "Temp disk usage", "مصرف دیسک موقت", "临时磁盘占用"), ("temp_files", "Temp files", "فایل‌های موقت", "临时文件"),
+ ("disk_free", "Free disk space", "فضای آزاد دیسک", "可用磁盘空间"), ("freed", "Total space freed", "کل فضای آزادشده", "累计释放空间"), ("speed", "Speed", "سرعت", "速度"), ("last_op", "Last operation", "آخرین عملیات", "最近操作")]:
+    A("dash.card." + k, en, fa, zh)
+A("dash.no_token", "No token yet", "هنوز توکنی نیست", "尚无令牌")
+A("dash.channels_ok", "verified channels", "کانال تأییدشده", "已验证频道")
+A("dash.errors_logged", "{n} error log entries", "{n} مورد در گزارش خطا", "{n} 条错误日志")
+A("dash.queue_paused", "Queue paused", "صف متوقف است", "队列已暂停")
+A("dash.temp_dir", "download directory", "پوشهٔ دانلود", "下载目录")
+A("dash.freed_hint", "by automatic clean-up", "با پاک‌سازی خودکار", "通过自动清理")
+A("dash.chart.daily", "Daily downloads & publications (14 days)", "دانلود و انتشار روزانه (۱۴ روز)", "每日下载与发布（14天）")
+A("dash.chart.ratio", "Success vs failure", "نسبت موفقیت و شکست", "成功与失败比例")
+A("dash.chart.types", "File type distribution", "توزیع نوع فایل", "文件类型分布")
+A("dash.chart.bandwidth", "Bandwidth used per day", "مصرف پهنای باند روزانه", "每日带宽使用")
+A("dash.chart.sizes", "File size distribution", "توزیع حجم فایل‌ها", "文件大小分布")
+A("dash.chart.published", "Publications – last 7 days", "انتشارها – ۷ روز اخیر", "发布数量——最近7天")
+A("dash.series.downloads", "Downloads", "دانلودها", "下载")
+A("dash.series.published", "Published", "انتشارها", "发布")
+A("dash.series.received", "Received", "دریافت", "接收")
+A("dash.series.sent", "Sent", "ارسال", "发送")
+A("dash.ok", "Succeeded", "موفق", "成功")
+A("dash.fail", "Failed", "ناموفق", "失败")
+A("dash.no_data", "No data yet", "هنوز داده‌ای نیست", "暂无数据")
+A("dash.recent_ops", "Recent operations", "آخرین عملیات", "最近操作")
+A("dash.admin_activity", "Admin & security activity", "فعالیت مدیران و امنیت", "管理员与安全活动")
+# ---------------- downloads
+A("dl.title", "Downloads & queue", "دانلودها و صف", "下载与队列")
+A("dl.sub", "Add links, watch progress, control the queue. Finished files are deleted automatically after publishing.", "لینک اضافه کنید، پیشرفت را ببینید و صف را کنترل کنید. فایل‌های تمام‌شده پس از انتشار خودکار پاک می‌شوند.", "添加链接、查看进度并控制队列。发布后文件会自动删除。")
+A("dl.add", "＋ Add links", "＋ افزودن لینک", "＋ 添加链接")
+A("dl.paste", "Paste from clipboard", "چسباندن از کلیپ‌بورد", "从剪贴板粘贴")
+A("dl.paste_tip", "Finds every link in the clipboard text", "همهٔ لینک‌های متن کلیپ‌بورد را پیدا می‌کند", "查找剪贴板文本中的所有链接")
+A("dl.pause", "Pause", "توقف", "暂停"); A("dl.resume", "Resume", "ادامه", "继续"); A("dl.cancel", "Cancel", "لغو", "取消"); A("dl.retry", "Retry", "تلاش مجدد", "重试")
+A("dl.up", "▲ Priority", "▲ اولویت", "▲ 优先"); A("dl.down", "▼ Priority", "▼ اولویت", "▼ 降低")
+A("dl.approve", "Preview / publish", "پیش‌نمایش / انتشار", "预览 / 发布")
+A("dl.open_folder", "Open temp folder", "بازکردن پوشهٔ موقت", "打开临时文件夹")
+A("dl.pause_queue", "Pause queue", "توقف صف", "暂停队列"); A("dl.resume_queue", "Resume queue", "ادامهٔ صف", "继续队列")
+A("dl.confirm_cancel", "Cancel {n} job(s)? Their temporary files will be deleted.", "{n} کار لغو شود؟ فایل‌های موقت آن‌ها حذف می‌شود.", "取消 {n} 个任务？其临时文件将被删除。")
+A("dl.awaiting", "Waiting for your approval", "منتظر تأیید شما", "等待您的批准")
+A("dl.footer", "Active: {active}   Waiting: {waiting}   Paused: {paused}", "فعال: {active}   در انتظار: {waiting}   متوقف: {paused}", "进行中：{active}   等待：{waiting}   已暂停：{paused}")
+A("dl.queue_paused_note", "queue paused ({reason})", "صف متوقف است ({reason})", "队列已暂停（{reason}）")
+# add links dialog
+A("add.title", "Add links", "افزودن لینک", "添加链接")
+A("add.hint", "Paste one or many links (any text containing links works). Click Analyse to see name, size and type before anything is downloaded.", "یک یا چند لینک را بچسبانید (هر متنی که لینک دارد کار می‌کند). با «تحلیل» پیش از دانلود، نام، حجم و نوع را ببینید.", "粘贴一个或多个链接（含链接的任意文本均可）。点击“分析”可在下载前查看名称、大小和类型。")
+A("add.paste", "Paste", "چسباندن", "粘贴"); A("add.import_txt", "Import TXT…", "وارد‌کردن TXT…", "导入 TXT…"); A("add.import_csv", "Import CSV…", "وارد‌کردن CSV…", "导入 CSV…")
+A("add.analyze", "Analyse", "تحلیل", "分析")
+A("add.none_found", "No valid link found.", "لینک معتبری پیدا نشد.", "未找到有效链接。")
+A("add.analyzing", "Analysing {n} link(s)…", "در حال تحلیل {n} لینک…", "正在分析 {n} 个链接…")
+A("add.dups", "{n} duplicate(s) ignored", "{n} تکراری نادیده گرفته شد", "已忽略 {n} 个重复项")
+A("add.analyzed", "{ok} of {n} can be downloaded.", "{ok} از {n} قابل دانلود است.", "{n} 个中有 {ok} 个可下载。")
+A("add.ok", "OK", "مناسب", "可用"); A("add.resumable", "OK · resumable", "مناسب · قابل ادامه", "可用 · 可续传")
+A("add.default_channel", "Default channel", "کانال پیش‌فرض", "默认频道"); A("add.destination", "Destination", "مقصد", "目标")
+A("add.all_channels", "Send to ALL enabled channels", "ارسال به همهٔ کانال‌های فعال", "发送到所有启用的频道")
+A("add.schedule", "Schedule start", "زمان‌بندی شروع", "定时开始")
+A("add.schedule_note", "Scheduling is done by this app (the Bale API has no scheduled posts) – keep the app running.", "زمان‌بندی را همین برنامه انجام می‌دهد (API بله ارسال زمان‌بندی‌شده ندارد) – برنامه باید باز بماند.", "定时由本应用完成（Bale API 不支持定时发布）——请保持应用运行。")
+A("add.caption", "Custom caption", "کپشن سفارشی", "自定义说明"); A("add.caption_ph", "Optional – overrides the template", "اختیاری – جایگزین قالب می‌شود", "可选——覆盖模板")
+A("add.confirm", "Add selected to queue", "افزودن انتخاب‌شده‌ها به صف", "将所选加入队列")
+A("add.queued_n", "{n} job(s) added to the queue.", "{n} کار به صف اضافه شد.", "已将 {n} 个任务加入队列。")
+# preview
+A("preview.title", "Preview before publishing", "پیش‌نمایش پیش از انتشار", "发布前预览")
+A("preview.publish", "Publish", "انتشار", "发布"); A("preview.discard", "Discard", "حذف", "丢弃")
+A("preview.confirm_discard", "Discard this file? It will be deleted.", "این فایل حذف شود؟ پاک خواهد شد.", "丢弃此文件？它将被删除。")
+A("preview.caption", "Caption", "کپشن", "说明"); A("preview.resolution", "Resolution", "رزولوشن", "分辨率"); A("preview.duration", "Duration", "مدت", "时长")
+# ---------------- channels
+A("chan.title", "Destination channels", "کانال‌های مقصد", "目标频道")
+A("chan.sub", "No channel is used until you add and confirm it. Each channel can receive specific file types.", "تا وقتی کانالی را اضافه و تأیید نکنید استفاده نمی‌شود. هر کانال می‌تواند نوع فایل مشخصی دریافت کند.", "在您添加并确认之前不会使用任何频道。每个频道可接收特定文件类型。")
+A("chan.add", "＋ Add channel", "＋ افزودن کانال", "＋ 添加频道"); A("chan.edit", "Edit", "ویرایش", "编辑"); A("chan.delete", "Delete", "حذف", "删除")
+A("chan.set_default", "Make default", "پیش‌فرض‌کردن", "设为默认"); A("chan.toggle", "Enable / disable", "فعال / غیرفعال", "启用 / 禁用"); A("chan.test", "Test access", "آزمایش دسترسی", "测试访问")
+A("chan.col.title", "Title", "عنوان", "标题"); A("chan.col.id", "Channel ID", "شناسه کانال", "频道ID"); A("chan.col.enabled", "Enabled", "فعال", "启用")
+A("chan.col.routes", "File types", "نوع فایل", "文件类型"); A("chan.col.checked", "Last checked", "آخرین بررسی", "上次检查")
+A("chan.all_types", "all types", "همهٔ انواع", "所有类型")
+A("chan.last_results", "Latest publishing results for the selected channel", "آخرین نتایج ارسال برای کانال انتخاب‌شده", "所选频道的最新发布结果")
+A("chan.confirm_authorized", "I confirm that I am allowed to publish to this channel.", "تأیید می‌کنم که مجاز به انتشار در این کانال هستم.", "我确认我有权在此频道发布内容。")
+A("chan.need_confirm", "Please tick the confirmation first.", "لطفاً ابتدا تیک تأیید را بزنید.", "请先勾选确认。")
+A("chan.confirm_delete", "Delete channel “{name}”?", "کانال «{name}» حذف شود؟", "删除频道“{name}”？")
+A("chan.exists", "This channel already exists.", "این کانال از قبل وجود دارد.", "该频道已存在。")
+A("chan.need_token", "Save the bot token first (Settings → Bot).", "ابتدا توکن ربات را ذخیره کنید (تنظیمات ← ربات).", "请先保存机器人令牌（设置 → 机器人）。")
+A("chan.probe_title", "Send a test message?", "پیام آزمایشی ارسال شود؟", "发送测试消息？")
+A("chan.probe_text", "To verify posting rights the bot will post one short message to the channel and delete it right away. Continue?", "برای بررسی دسترسی ارسال، ربات یک پیام کوتاه در کانال می‌فرستد و بلافاصله حذفش می‌کند. ادامه می‌دهید؟", "为验证发帖权限，机器人将向频道发送一条简短消息并立即删除。继续吗？")
+A("chan.test_ok", "Channel “{title}” is reachable and the bot can post.", "کانال «{title}» در دسترس است و ربات می‌تواند پیام بفرستد.", "频道“{title}”可访问，机器人可以发帖。")
+A("chan.test_fail", "Cannot post: {detail}", "ارسال ممکن نیست: {detail}", "无法发帖：{detail}")
+# ---------------- users
+A("users.title", "Users & roles", "کاربران و نقش‌ها", "用户与角色")
+A("users.sub", "Only the people listed here can use the bot. Roles: Super Admin, Admin, Operator, Read Only.", "فقط افراد این فهرست می‌توانند از ربات استفاده کنند. نقش‌ها: مدیر ارشد، مدیر، اپراتور، فقط‌خواندنی.", "只有此处列出的人员可以使用机器人。角色：超级管理员、管理员、操作员、只读。")
+A("users.add", "＋ Add user", "＋ افزودن کاربر", "＋ 添加用户"); A("users.edit", "Edit", "ویرایش", "编辑"); A("users.block", "Block / unblock", "مسدود / آزاد", "封禁 / 解封"); A("users.remove", "Remove", "حذف", "移除")
+A("users.col.id", "User ID", "شناسه", "用户ID"); A("users.col.name", "Name", "نام", "名称"); A("users.col.role", "Role", "نقش", "角色"); A("users.col.quota", "Daily quota", "سهمیهٔ روزانه", "每日配额")
+A("users.active", "Active", "فعال", "正常"); A("users.blocked", "Blocked", "مسدود", "已封禁"); A("users.default_quota", "default", "پیش‌فرض", "默认")
+A("users.note", "The person using this desktop app always acts as Super Admin. Telegram-style user IDs are numeric; a stranger who messages the bot receives their ID so you can add them.", "کاربر پشت این برنامهٔ دسکتاپ همیشه مدیر ارشد است. شناسه‌ها عددی‌اند؛ اگر فردی ناشناس به ربات پیام بدهد، شناسه‌اش را دریافت می‌کند تا شما او را اضافه کنید.", "使用此桌面应用的人始终为超级管理员。用户ID为数字；陌生人给机器人发消息时会收到自己的ID，您可据此添加。")
+A("users.activity", "Activity", "فعالیت", "活动")
+A("users.confirm_super", "Make this user a Super Admin? They get full control.", "این کاربر مدیر ارشد شود؟ کنترل کامل خواهد داشت.", "将此用户设为超级管理员？他将拥有完全控制权。")
+A("users.confirm_remove", "Remove user {id}?", "کاربر {id} حذف شود؟", "移除用户 {id}？")
+A("users.last_super", "You cannot remove or block the last Super Admin.", "آخرین مدیر ارشد را نمی‌توان حذف یا مسدود کرد.", "不能移除或封禁最后一位超级管理员。")
+# ---------------- logs
+A("logs.title", "Monitor & Logs", "پایش و گزارش‌ها", "监控与日志")
+A("logs.sub", "All reports are masked: tokens, cookies and passwords never appear here or in exports.", "همهٔ گزارش‌ها ماسک می‌شوند: توکن، کوکی و رمز هرگز اینجا یا در خروجی‌ها دیده نمی‌شود.", "所有报告均已脱敏：令牌、Cookie 和密码不会出现在此处或导出文件中。")
+A("logs.search_ph", "Search file name, message…", "جست‌وجوی نام فایل، پیام…", "搜索文件名、消息…")
+A("logs.from", "From", "از", "从"); A("logs.to", "To", "تا", "至"); A("logs.apply", "Apply", "اعمال", "应用"); A("logs.all_channels", "All channels", "همهٔ کانال‌ها", "所有频道")
+for k, en, fa, zh in [("downloads", "Downloads", "دانلودها", "下载"), ("publishes", "Publications", "انتشارها", "发布"), ("errors", "Errors", "خطاها", "错误"),
+                      ("security", "Security", "امنیت", "安全"), ("users", "Users", "کاربران", "用户"), ("cleanup", "Clean-up", "پاک‌سازی", "清理")]:
+    A("logs.tab." + k, en, fa, zh)
+A("logs.count", "{n} record(s)", "{n} رکورد", "{n} 条记录")
+A("logs.export_csv", "Export CSV", "خروجی CSV", "导出 CSV"); A("logs.export_json", "Export JSON", "خروجی JSON", "导出 JSON"); A("logs.print", "Print", "چاپ", "打印")
+A("logs.exported", "Saved to {path}", "ذخیره شد در {path}", "已保存到 {path}")
+# ---------------- settings
+A("set.title", "Settings", "تنظیمات", "设置")
+A("set.sub", "Every option has a ? button with a full explanation. Invalid values are never saved.", "هر گزینه دکمهٔ ؟ با توضیح کامل دارد. مقدار نامعتبر هرگز ذخیره نمی‌شود.", "每个选项都有“?”按钮提供完整说明。无效值不会被保存。")
+for k, en, fa, zh in [("bot", "Bot", "ربات", "机器人"), ("downloads", "Downloads", "دانلود", "下载"), ("publish", "Publishing & media", "انتشار و رسانه", "发布与媒体"),
+                      ("advanced", "Advanced", "پیشرفته", "高级"), ("appearance", "Appearance & language", "ظاهر و زبان", "外观与语言"), ("backup", "Backup & updates", "پشتیبان و به‌روزرسانی", "备份与更新")]:
+    A("set.tab." + k, en, fa, zh)
+A("set.save_token", "Save token securely", "ذخیرهٔ امن توکن", "安全保存令牌"); A("set.remove_token", "Remove token", "حذف توکن", "移除令牌")
+A("set.token_ok", "Token accepted – bot “{name}” (@{username}).", "توکن پذیرفته شد – ربات «{name}» (@{username}).", "令牌有效——机器人“{name}”（@{username}）。")
+A("set.token_saved", "Token stored: {masked}  (storage: {backend})", "توکن ذخیره شد: {masked}  (محل ذخیره: {backend})", "令牌已保存：{masked}（存储：{backend}）")
+A("set.token_none", "No token stored.", "توکنی ذخیره نشده است.", "尚未保存令牌。")
+A("set.confirm_token", "Replace the stored token and reconnect the bot?", "توکن ذخیره‌شده جایگزین شود و ربات دوباره وصل شود؟", "替换已保存的令牌并重新连接机器人？")
+A("set.confirm_remove_token", "Remove the token? The bot will stop.", "توکن حذف شود؟ ربات متوقف می‌شود.", "移除令牌？机器人将停止。")
+A("set.confirm_critical", "You changed important settings: {names}. Apply them?", "تنظیمات مهم تغییر کرد: {names}. اعمال شود؟", "您更改了重要设置：{names}。是否应用？")
+A("set.fix_errors", "Please fix the highlighted fields.", "لطفاً فیلدهای مشخص‌شده را اصلاح کنید.", "请修正标记的字段。")
+A("set.saved", "Settings saved.", "تنظیمات ذخیره شد.", "设置已保存。")
+A("set.locked_cleanup", "Always on: temporary files are deleted after a successful publish.", "همیشه فعال: فایل‌های موقت پس از انتشار موفق حذف می‌شوند.", "始终开启：发布成功后会删除临时文件。")
+A("set.caption_vars", "Variables:", "متغیرها:", "变量：")
+A("set.preview", "Preview:", "پیش‌نمایش:", "预览：")
+A("set.edit_templates", "Caption templates per file type…", "قالب کپشن برای هر نوع فایل…", "按文件类型编辑说明模板…")
+A("set.tpl_default", "Default (all other types)", "پیش‌فرض (سایر انواع)", "默认（其他类型）"); A("set.tpl_fallback", "Empty = use the default template", "خالی = استفاده از قالب پیش‌فرض", "留空 = 使用默认模板")
+# ---------------- backup / updates
+A("bk.settings", "Settings export / import", "خروجی / ورودی تنظیمات", "设置导出 / 导入"); A("bk.settings_desc", "Settings only. The bot token is NEVER exported.", "فقط تنظیمات. توکن ربات هرگز خارج نمی‌شود.", "仅设置。机器人令牌绝不会被导出。")
+A("bk.export_settings", "Export settings…", "خروجی تنظیمات…", "导出设置…"); A("bk.import_settings", "Import settings…", "ورودی تنظیمات…", "导入设置…")
+A("bk.export_done_no_token", "Settings exported. The file contains no token.", "تنظیمات ذخیره شد. فایل توکن ندارد.", "设置已导出。文件不包含令牌。")
+A("bk.confirm_import", "Replace current settings with the file’s content?", "تنظیمات فعلی با محتوای فایل جایگزین شود؟", "用文件内容替换当前设置？")
+A("bk.db", "Database backup / restore", "پشتیبان‌گیری / بازیابی دیتابیس", "数据库备份 / 恢复")
+A("bk.db_desc", "Backups can be password-encrypted. Restoring first saves a safety copy of the current database.", "پشتیبان را می‌توان با رمز رمزگذاری کرد. پیش از بازیابی، نسخهٔ ایمنی دیتابیس فعلی ذخیره می‌شود.", "备份可用密码加密。恢复前会先保存当前数据库的安全副本。")
+A("bk.backup", "Create backup…", "تهیهٔ پشتیبان…", "创建备份…"); A("bk.restore", "Restore backup…", "بازیابی پشتیبان…", "恢复备份…"); A("bk.verify", "Verify backup…", "بررسی سلامت پشتیبان…", "验证备份…")
+A("bk.password_prompt", "Password (leave empty for none):", "رمز (برای بدون رمز خالی بگذارید):", "密码（留空表示不加密）：")
+A("bk.backup_done", "Backup created. Encrypted: {enc}", "پشتیبان ساخته شد. رمزگذاری: {enc}", "备份已创建。已加密：{enc}")
+A("bk.valid", "The backup is valid.", "پشتیبان سالم است.", "备份有效。"); A("bk.invalid", "Backup problem: {msg}", "مشکل پشتیبان: {msg}", "备份问题：{msg}")
+A("bk.confirm_restore", "Restore replaces the current database (a safety copy is kept). Continue?", "بازیابی دیتابیس فعلی را جایگزین می‌کند (یک نسخهٔ ایمنی نگه داشته می‌شود). ادامه؟", "恢复将替换当前数据库（会保留安全副本）。继续？")
+A("bk.restore_done", "Database restored.", "دیتابیس بازیابی شد.", "数据库已恢复。")
+A("bk.health", "Database health & maintenance", "سلامت و نگهداری دیتابیس", "数据库健康与维护"); A("bk.health_desc", "Integrity check, vacuum, and immediate clean-up of orphaned temp files.", "بررسی سلامت، فشرده‌سازی و پاک‌سازی فوری فایل‌های موقت رهاشده.", "完整性检查、压缩，以及立即清理孤立的临时文件。")
+A("bk.integrity", "Integrity check", "بررسی سلامت", "完整性检查"); A("bk.vacuum", "Vacuum", "فشرده‌سازی", "压缩"); A("bk.clean_now", "Clean up now", "پاک‌سازی همین حالا", "立即清理"); A("bk.open_data", "Open data folder", "بازکردن پوشهٔ داده", "打开数据文件夹")
+A("bk.integrity_ok", "Database OK – size {size}.", "دیتابیس سالم است – حجم {size}.", "数据库正常——大小 {size}。"); A("bk.integrity_bad", "Database PROBLEM ({size}): {probs}", "مشکل دیتابیس ({size}): {probs}", "数据库问题（{size}）：{probs}")
+A("bk.cleaned", "Freed {freed} in {files} file(s).", "{freed} در {files} فایل آزاد شد.", "已在 {files} 个文件中释放 {freed}。")
+A("upd.check", "Check for updates", "بررسی به‌روزرسانی", "检查更新")
+A("upd.no_feed", "No update feed URL configured.", "آدرس خوراک به‌روزرسانی تنظیم نشده است.", "未配置更新源地址。")
+A("upd.error", "Update check failed: {err}", "بررسی به‌روزرسانی ناموفق بود: {err}", "检查更新失败：{err}")
+A("upd.latest", "You have the latest version ({v}).", "آخرین نسخه ({v}) را دارید.", "已是最新版本（{v}）。")
+A("upd.available", "New version {v} is available.\n{notes}", "نسخهٔ جدید {v} موجود است.\n{notes}", "有新版本 {v}。\n{notes}")
+A("upd.security", "This release contains security fixes.", "این نسخه شامل اصلاحیهٔ امنیتی است.", "此版本包含安全修复。")
+A("upd.manual", "Nothing is installed automatically – download and install it yourself.", "هیچ چیز خودکار نصب نمی‌شود – خودتان دانلود و نصب کنید.", "不会自动安装——请自行下载并安装。")
+# ---------------- help center
+A("help.title", "Help Center", "مرکز راهنما", "帮助中心"); A("help.sub", "Step-by-step guides and FAQ.", "راهنمای مرحله‌ای و پرسش‌های متداول.", "分步指南与常见问题。")
+A("help.search", "Search the help…", "جست‌وجو در راهنما…", "搜索帮助…"); A("help.articles", "Guides", "راهنماها", "指南"); A("help.faq", "FAQ", "پرسش‌های متداول", "常见问题"); A("help.none", "Nothing found.", "چیزی پیدا نشد.", "未找到内容。")
+# ---------------- wizard
+A("wiz.title", "Setup wizard", "راهنمای راه‌اندازی", "设置向导")
+A("wiz.step", "Step {i} of {n}", "مرحلهٔ {i} از {n}", "第 {i} 步，共 {n} 步")
+A("wiz.save_exit", "Save & exit", "ذخیره و خروج", "保存并退出"); A("wiz.activate", "✔ Activate", "✔ فعال‌سازی", "✔ 启用")
+for k, en, fa, zh in [("welcome", "Welcome", "خوش آمدید", "欢迎"), ("token", "Bot token", "توکن ربات", "机器人令牌"), ("connect", "Test the connection", "آزمایش اتصال", "测试连接"),
+        ("channel", "Destination channel", "کانال مقصد", "目标频道"), ("access", "Check channel access", "بررسی دسترسی کانال", "检查频道权限"), ("admins", "Authorised admins", "مدیران مجاز", "授权管理员"),
+        ("tempdir", "Temporary folder", "پوشهٔ موقت", "临时文件夹"), ("limits", "Download limits", "محدودیت‌های دانلود", "下载限制"), ("cleanup", "Clean-up policy", "سیاست پاک‌سازی", "清理策略"), ("review", "Review & activate", "بررسی نهایی و فعال‌سازی", "检查并启用")]:
+    A("wiz.s." + k, en, fa, zh)
+A("wiz.welcome_html", "<h3>Welcome to BALE DOWNLOAD HUB</h3><p>This wizard connects your Bale bot and channel in about five minutes.</p><ul><li>Downloads files from <b>allowed public links</b></li><li>Publishes them to your Bale channel</li><li><b>Deletes every temporary file</b> afterwards</li></ul><p>You can go back at any step; what you enter is kept even if you close the app. Pick your language below.</p>",
+  "<h3>به BALE DOWNLOAD HUB خوش آمدید</h3><p>این راهنما ربات و کانال بله شما را در حدود پنج دقیقه وصل می‌کند.</p><ul><li>فایل را از <b>لینک‌های عمومی و مجاز</b> دانلود می‌کند</li><li>آن را در کانال بله شما منتشر می‌کند</li><li>سپس <b>همهٔ فایل‌های موقت را حذف می‌کند</b></li></ul><p>در هر مرحله می‌توانید برگردید؛ آنچه وارد می‌کنید حتی با بستن برنامه حفظ می‌شود. زبان را در پایین انتخاب کنید.</p>",
+  "<h3>欢迎使用 BALE DOWNLOAD HUB</h3><p>本向导可在约五分钟内连接您的 Bale 机器人和频道。</p><ul><li>从<b>允许的公开链接</b>下载文件</li><li>发布到您的 Bale 频道</li><li>之后<b>删除所有临时文件</b></li></ul><p>您可在任何步骤返回；即使关闭应用，已输入内容也会保留。请在下方选择语言。</p>")
+A("wiz.token_already", "A token is already stored ({masked}). Leave the field empty to keep it.", "توکنی از قبل ذخیره شده است ({masked}). برای حفظ آن فیلد را خالی بگذارید.", "已保存令牌（{masked}）。留空则保持不变。")
+A("wiz.test_first", "Please press Test and wait for a green result first.", "لطفاً ابتدا «آزمایش» را بزنید و نتیجهٔ سبز را ببینید.", "请先点击“测试”并等待绿色结果。")
+A("wiz.conn_ok", "Connected as “{name}” (@{username}, id {id}).", "با نام «{name}» (@{username}، شناسه {id}) متصل شد.", "已连接为“{name}”（@{username}，id {id}）。")
+A("wiz.conn_fail", "Connection failed: {detail}", "اتصال ناموفق بود: {detail}", "连接失败：{detail}"); A("wiz.need_conn", "Connection must succeed first.", "ابتدا باید اتصال موفق شود.", "必须先连接成功。")
+A("wiz.access_text", "Make sure your bot is an administrator of the channel with permission to post. Then press the button: the bot posts one short test message and deletes it – this is the only reliable way to verify posting rights.", "مطمئن شوید ربات ادمین کانال است و اجازهٔ ارسال دارد. سپس دکمه را بزنید: ربات یک پیام آزمایشی می‌فرستد و حذفش می‌کند – این تنها راه قابل‌اعتماد بررسی دسترسی است.", "请确保机器人是频道管理员并有发帖权限。然后点击按钮：机器人会发送一条测试消息并删除它——这是验证发帖权限的唯一可靠方式。")
+A("wiz.access_btn", "Send test message & verify", "ارسال پیام آزمایشی و بررسی", "发送测试消息并验证"); A("wiz.access", "Channel access", "دسترسی کانال", "频道权限")
+A("wiz.skip_access", "Continue without a successful test (not recommended)", "بدون آزمایش موفق ادامه بده (توصیه نمی‌شود)", "未通过测试仍继续（不推荐）")
+A("wiz.need_access", "Run the access test successfully (or tick “continue anyway”).", "آزمایش دسترسی را با موفقیت انجام دهید (یا «ادامه بده» را بزنید).", "请成功完成权限测试（或勾选“仍继续”）。")
+A("wiz.not_channel", "This chat is not a channel (it is a group or private chat).", "این گفت‌وگو کانال نیست (گروه یا چت خصوصی است).", "此聊天不是频道（是群组或私聊）。"); A("wiz.not_verified", "not verified", "تأییدنشده", "未验证")
+A("wiz.dir_ok", "Folder is writable. Free space: {free}.", "پوشه قابل‌نوشتن است. فضای آزاد: {free}.", "文件夹可写。可用空间：{free}。"); A("wiz.dir_fail", "Cannot use this folder: {detail}", "استفاده از این پوشه ممکن نیست: {detail}", "无法使用此文件夹：{detail}")
+A("wiz.need_type", "Select at least one allowed file type.", "حداقل یک نوع فایل مجاز را انتخاب کنید.", "请至少选择一种允许的文件类型。")
+A("wiz.cleanup_note", "After every successful publish, ALL temporary data of that job is deleted – this cannot be switched off. Note: deleting is not secure erasure.", "پس از هر انتشار موفق، همهٔ داده‌های موقت آن کار حذف می‌شود – این قابل خاموش‌کردن نیست. توجه: حذف با پاک‌سازی امن یکی نیست.", "每次成功发布后，该任务的所有临时数据都会被删除——此功能无法关闭。注意：删除不等于安全擦除。")
+# ---------------- bot messages
+A("bot.not_authorized", "⛔ You are not authorised to use this bot.\nYour numeric ID: {user_id}\nGive it to the administrator.", "⛔ شما مجاز به استفاده از این ربات نیستید.\nشناسهٔ عددی شما: {user_id}\nآن را به مدیر بدهید.", "⛔ 您无权使用此机器人。\n您的数字ID：{user_id}\n请将其提供给管理员。")
+A("bot.rate_limited", "⏳ Too many requests – please wait a minute.", "⏳ درخواست‌ها زیاد است – یک دقیقه صبر کنید.", "⏳ 请求过多——请稍等一分钟。")
+A("bot.send_link_hint", "Send me a link (or /help).", "یک لینک برایم بفرستید (یا /help).", "请发送链接给我（或 /help）。")
+A("bot.start", "👋 Bale Download Hub bot. Your role: {role}.\nSend a link to download and publish it. /help lists commands.", "👋 ربات Bale Download Hub. نقش شما: {role}.\nبرای دانلود و انتشار یک لینک بفرستید. /help فهرست دستورها.", "👋 Bale Download Hub 机器人。您的角色：{role}。\n发送链接即可下载并发布。/help 查看命令。")
+A("bot.help", "Commands:\n/status – overview\n/queue – running jobs\n/cancel <id|all>\n/pause [id] · /resume [id]\n/confirm <code> · /reject <code>\nAdmins: /users /adduser <id> [role] /removeuser <id> /block <id> /unblock <id>\nSend links to queue downloads. (Role: {role})", "دستورها:\n/status – وضعیت\n/queue – کارهای جاری\n/cancel <id|all>\n/pause [id] · /resume [id]\n/confirm <code> · /reject <code>\nمدیران: /users /adduser <id> [role] /removeuser <id> /block <id> /unblock <id>\nبرای دانلود لینک بفرستید. (نقش: {role})", "命令：\n/status – 概览\n/queue – 进行中的任务\n/cancel <id|all>\n/pause [id] · /resume [id]\n/confirm <code> · /reject <code>\n管理员：/users /adduser <id> [role] /removeuser <id> /block <id> /unblock <id>\n发送链接即可排队下载。（角色：{role}）")
+A("bot.unknown_command", "Unknown command. Try /help.", "دستور ناشناس. /help را امتحان کنید.", "未知命令。请试试 /help。"); A("bot.forbidden", "⛔ Your role does not allow this.", "⛔ نقش شما اجازهٔ این کار را نمی‌دهد.", "⛔ 您的角色无权执行此操作。")
+A("bot.status", "📊 Active: {active} · Queued: {queued} · Done: {done} · Failed: {failed}\n💾 Free: {free} · Bot: {bot} · Queue paused: {paused}", "📊 فعال: {active} · در صف: {queued} · انجام‌شده: {done} · ناموفق: {failed}\n💾 آزاد: {free} · ربات: {bot} · صف متوقف: {paused}", "📊 进行中：{active} · 队列：{queued} · 完成：{done} · 失败：{failed}\n💾 可用：{free} · 机器人：{bot} · 队列暂停：{paused}")
+A("bot.queue_empty", "The queue is empty.", "صف خالی است.", "队列为空。")
+A("bot.cancel_usage", "Usage: /cancel <job-id> or /cancel all", "استفاده: /cancel <شناسه کار> یا /cancel all", "用法：/cancel <任务ID> 或 /cancel all")
+A("bot.cancelled", "Job {id} cancelled.", "کار {id} لغو شد.", "任务 {id} 已取消。"); A("bot.cancelled_n", "{n} job(s) cancelled.", "{n} کار لغو شد.", "已取消 {n} 个任务。")
+A("bot.job_not_found", "No unique running job with that ID.", "کار فعالی با این شناسه پیدا نشد.", "未找到该ID对应的唯一进行中任务。")
+A("bot.job_paused", "Job {id} paused.", "کار {id} متوقف شد.", "任务 {id} 已暂停。"); A("bot.job_resumed", "Job {id} resumed.", "کار {id} ادامه یافت.", "任务 {id} 已继续。")
+A("bot.queue_paused", "Queue paused.", "صف متوقف شد.", "队列已暂停。"); A("bot.queue_resumed", "Queue resumed.", "صف ادامه یافت.", "队列已继续。")
+A("bot.no_users", "No users.", "کاربری نیست.", "没有用户。"); A("bot.admin_usage", "Usage: /adduser <numeric-id> [role] · /removeuser <id> · /block <id> · /unblock <id>", "استفاده: /adduser <شناسه عددی> [role] · /removeuser <id> · /block <id> · /unblock <id>", "用法：/adduser <数字ID> [role] · /removeuser <id> · /block <id> · /unblock <id>")
+A("bot.user_added", "User {id} added as {role}.", "کاربر {id} با نقش {role} اضافه شد.", "已添加用户 {id}，角色 {role}。"); A("bot.user_removed", "User {id} removed.", "کاربر {id} حذف شد.", "已移除用户 {id}。")
+A("bot.user_blocked", "User {id} blocked.", "کاربر {id} مسدود شد.", "用户 {id} 已封禁。"); A("bot.user_unblocked", "User {id} unblocked.", "کاربر {id} آزاد شد.", "用户 {id} 已解封。")
+A("bot.queued", "✅ Queued {id}: {name} ({size})", "✅ در صف قرار گرفت {id}: {name} ({size})", "✅ 已排队 {id}：{name}（{size}）")
+A("bot.rejected", "❌ {url} – {reason}", "❌ {url} – {reason}", "❌ {url} – {reason}"); A("bot.dup_in_message", "↩ duplicate ignored: {url}", "↩ تکراری نادیده گرفته شد: {url}", "↩ 已忽略重复：{url}")
+A("bot.confirm_ask", "❓ {name}\n{size} · {type}\nReply /confirm {token} to start or /reject {token}.", "❓ {name}\n{size} · {type}\nبرای شروع /confirm {token} یا برای رد /reject {token} بفرستید.", "❓ {name}\n{size} · {type}\n回复 /confirm {token} 开始，或 /reject {token} 拒绝。")
+A("bot.confirm_unknown", "No pending request with that code (it may have expired).", "درخواست منتظری با این کد نیست (شاید منقضی شده).", "没有该代码对应的待确认请求（可能已过期）。"); A("bot.confirm_rejected", "Request discarded.", "درخواست رد شد.", "请求已丢弃。")
+# ---------------- notifications
+N = [("download_started", "Download started", "شروع دانلود", "开始下载", "{name}", "{name}", "{name}"),
+     ("download_finished", "Download finished", "پایان دانلود", "下载完成", "{name}", "{name}", "{name}"),
+     ("upload_started", "Publishing started", "شروع ارسال", "开始发布", "{name}", "{name}", "{name}"),
+     ("upload_finished", "Published", "ارسال انجام شد", "发布完成", "{name}", "{name}", "{name}"),
+     ("connection_error", "Connection error", "خطا در اتصال", "连接错误", "{detail}", "{detail}", "{detail}"),
+     ("download_error", "Download error", "خطا در دانلود", "下载错误", "{detail}", "{detail}", "{detail}"),
+     ("upload_error", "Publishing error", "خطا در ارسال", "发布错误", "{detail}", "{detail}", "{detail}"),
+     ("disk_low", "Disk space low", "فضای دیسک کم است", "磁盘空间不足", "Only {free} free – the queue was paused.", "فقط {free} آزاد است – صف متوقف شد.", "仅剩 {free}——队列已暂停。"),
+     ("quota_near", "Quota almost reached", "نزدیک سقف سهمیه", "接近配额上限", "A user is close to the daily limit.", "یک کاربر به سقف روزانه نزدیک است.", "有用户接近每日上限。"),
+     ("bot_disconnected", "Bot disconnected", "ربات قطع شد", "机器人已断开", "{detail}", "{detail}", "{detail}"),
+     ("cleanup_done", "Clean-up complete", "پاک‌سازی انجام شد", "清理完成", "Freed {freed}.", "{freed} آزاد شد.", "已释放 {freed}。")]
+for k, ten, tfa, tzh, ben, bfa, bzh in N:
+    A(f"notify.{k}.title", ten, tfa, tzh); A(f"notify.{k}.body", ben, bfa, bzh)
+
+# ---------------- local API
+A("set.api_key", "Local API key", "کلید API داخلی", "本地 API 密钥")
+A("set.api_copy", "Copy key", "کپی کلید", "复制密钥"); A("set.api_regen", "Regenerate key", "ساخت کلید جدید", "重新生成密钥")
+A("set.api_copied", "API key copied to the clipboard.", "کلید API در کلیپ‌بورد کپی شد.", "API 密钥已复制到剪贴板。")
+A("set.api_regen_confirm", "Create a new key? Programs using the old key will stop working.", "کلید جدید ساخته شود؟ برنامه‌هایی که از کلید قبلی استفاده می‌کنند از کار می‌افتند.", "生成新密钥？使用旧密钥的程序将停止工作。")
+A("set.api_note", "POST http://127.0.0.1:<port>/api/v1/links  with header  Authorization: Bearer <key>  and JSON {\"urls\": [\"https://…\"]}. Listens on this computer only.", "POST http://127.0.0.1:<port>/api/v1/links  با هدر  Authorization: Bearer <key>  و بدنهٔ JSON {\"urls\": [\"https://…\"]}. فقط روی همین رایانه گوش می‌دهد.", "POST http://127.0.0.1:<port>/api/v1/links，请求头 Authorization: Bearer <key>，JSON 内容 {\"urls\": [\"https://…\"]}。仅在本机监听。")
+A("set.api_running", "(running on port {port})", "(در حال اجرا روی پورت {port})", "（正在端口 {port} 上运行）")
